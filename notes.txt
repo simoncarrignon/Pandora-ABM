@@ -1,0 +1,14 @@
+20.03.2017 - Compiling tutorial Examples for the Framework in C++
+21.03.2017 - Attempting a Environment Setup for a simple random walk in a different manner
+
+Agent.cxx - Peredelivat kontent, x3 4to tam
+Agent.hxx - Redaktirovat  v zavisimosti ot cxx
+
+world.hxx - Change some parts after deaing with cxx
+world.cxx - Most part of initialization is done
+
+config.hxx - finish after cxx
+config.cxx - fidure out which params I actually need
+
+SConstruct - DONE
+Main - ALMOST DONE

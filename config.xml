@@ -1,0 +1,28 @@
+<?xml version="1.0" ?>
+<config> 
+	<!-- Output Directory -->
+	<output resultsFile="./data/evacuation.h5" logsDir="./logs"/>
+	<!-- Number of Steps and Raster Sizes -->
+	<numSteps value="0" serializeResolution="1"/>
+	<size width="1000" height="1000"/>
+	<!-- Raster specifics -->
+	<exits>
+		<exit x="1000" y="200"/>
+		<exit x="250" y="1000"/>
+	</exits>
+	<doors>
+		<door x="334" y="500"/>
+		<door x="335" y="500"/>
+	</doors>
+	<signs>
+		<sign x="1000" y="200"/>
+		<sign x="250" y="1000"/>
+	</signs>
+ 
+	<environment floorNumber = "2"/>
+
+	<!-- Agents Parameters  -->
+	<agents num="5000" childPercentage="15" elderlyPercentage="10" malePercentage="59" notMovedPanicTreshold="20"/>
+
+</config>
+
