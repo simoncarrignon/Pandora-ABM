@@ -3,7 +3,7 @@
 namespace Evacuation
 {
 
-EvacConfig::EvacConfig( const std::string & xmlFile ) : Config(xmlFile), _obstacleFile("not loaded"), _initAgentsDistributionFile("not loaded")
+EvacConfig::EvacConfig( const std::string & xmlFile ) : Config(xmlFile)
 {
 }
 

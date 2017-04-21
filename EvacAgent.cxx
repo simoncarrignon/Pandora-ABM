@@ -6,8 +6,8 @@
 #include <GeneralState.hxx>
 #include <cmath>
 
-#include "EvacWorld.hxx"
-#include "EvacConfig.hxx"
+#include <EvacWorld.hxx>
+#include <EvacConfig.hxx>
 
 namespace Evacuation
 {

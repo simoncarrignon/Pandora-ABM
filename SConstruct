@@ -5,7 +5,7 @@ agents = ['EvacAgent']
 world = 'EvacWorld'
 namespaceAgents = ['Evacuation']
 
-srcFiles = ['main.cxx', 'EvacAgent.cxx', 'EvacWorld.cxx','EvacConfig.cxx']
+srcFiles = ['main.cxx', 'EvacConfig.cxx', 'EvacAgent.cxx', 'EvacWorld.cxx']
 
 ###################################################
 ########## END OF CUSTOM INFORMATION  #############
