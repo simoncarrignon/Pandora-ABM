@@ -41,7 +41,7 @@ class EvacAgent : public Engine::Agent
         int knowledge;
         int evacTime;
         float evacDist;
-        float panicLevel; // what high panic leads to ??? FIGURE OUT !!!!!!!! 
+        int panicked; // what high panic leads to ??? FIGURE OUT !!!!!!!! 
         int notMoved;// how many timesteps the agent has not moved at all
         Engine::Point2D<int> currGoal; // current goal , maybe door or exit
         Engine::Point2D<int> tempNextPosition; // temporary next position, before competition for free cell has determined who moves. 

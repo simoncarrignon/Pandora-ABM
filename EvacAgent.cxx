@@ -14,8 +14,7 @@ namespace Evacuation
 
 
 
-//EvacAgent::EvacAgent( const std::string & id) : Agent(id), _direction(0), _exited(false), _panicked(false), _rest(0.0f, 0.0f), _consecutive(0)
-EvacAgent::EvacAgent( const std::string & id) : Agent(id), speed(0.0f), floor(0), isOnStairs(false), exited(false), gender(0), age(0), panicLevel(0), currGoal(0, 0), vision(0), evacDist(0), evacTime(0)
+EvacAgent::EvacAgent( const std::string & id) : Agent(id), speed(0.0), floor(0), isOnStairs(false), exited(false), gender(0), age(0), panicked(0), currGoal(0, 0), vision(0), evacDist(0), evacTime(0)
 {
         const EvacConfig & evacConfig = (const EvacConfig &)getWorld()->getConfig();
 	floor = Engine::GeneralState::statistics().getUniformDistValue(0,floorNumber-1);
@@ -326,7 +325,7 @@ void EvacAgent::updateState()
 void EvacAgent::registerAttributes()
 {
     const EvacConfig & evacConfig = (const EvacConfig &)getWorld()->getConfig();
-        registerIntAttribute("panicLevel");
+        registerIntAttribute("panicked");
         registerIntAttribute("speed");
 	registerIntAttribute("notMoved");
         registerFloatAttribute("evacDist"); 
@@ -336,7 +335,7 @@ void EvacAgent::registerAttributes()
 void EvacAgent::serialize()
 {
     const EvacConfig & evacConfig = (const EvacConfig &)getWorld()->getConfig();
-        serializeAttribute("panicLevel", panicLevel);
+        serializeAttribute("panicked", panicked);
         serializeAttribute("speed", speed);
         serializeAttribute("notMoved", notMoved);
         serializeAttribute("evacTime", evacTime);
