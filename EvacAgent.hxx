@@ -47,6 +47,7 @@ class EvacAgent : public Engine::Agent
         Engine::Point2D<int> tempNextPosition; // temporary next position, before competition for free cell has determined who moves. 
         void NextPosition();
         void SetTempNextPosition();
+        
 
 
 public:
@@ -59,6 +60,7 @@ public:
 //ADDING LINE TO TRY TO FIX AN ERROR
         typedef std::list<Engine::Point2D<int> > ExitsList;
 
+        std::list<Engine::Point2D<int> > operator[](int index){return std::list<Engine::Point2D<int> >[index];}
 
 	void selectActions();
 	void updateState();
@@ -71,7 +73,7 @@ public:
 	// This code has been automatically generated //
 	/////// Please do not modify it ////////////////
 	////////////////////////////////////////////////
-	MyAgent( void * );
+	EvacAgent( void * );
 	void * fillPackage();
 	void sendVectorAttributes(int);
 	void receiveVectorAttributes(int);
