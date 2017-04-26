@@ -55,6 +55,11 @@ public:
 	virtual ~EvacAgent();
 	//void setExit( const Engine::Point2D<int> & exit ); // not sure what this is
 	
+
+//ADDING LINE TO TRY TO FIX AN ERROR
+        typedef std::list<Engine::Point2D<int> > ExitsList;
+
+
 	void selectActions();
 	void updateState();
 	void registerAttributes();

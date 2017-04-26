@@ -241,7 +241,7 @@ void EvacAgent::SetTempNextPosition()
             {
 // THIS IS THE NEW TEST LINE
  EvacWorld & evacWorld = ( EvacWorld &)getWorld();
-            auto _exits = evacWorld.returnList();
+            ExitsList _exits = evacWorld.returnList();
             currGoal = _exits[0];
             int i; 
             for (i= 0; i< _exits.size(); i++)

@@ -297,8 +297,6 @@ void EvacWorld::ResolveCompetition()
     }
 }
 
-ExitsList EvacWorld::returnList(){return _exits;}
-
 void EvacWorld::stepEnvironment()
 {
         ResolveCompetition();
