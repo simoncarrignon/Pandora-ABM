@@ -53,13 +53,13 @@ public:
 	// todo remove environment from here
 	EvacAgent( const std::string & id);
 	virtual ~EvacAgent();
-	void setExit( const Engine::Point2D<int> & exit ); // not sure what this is
+	//void setExit( const Engine::Point2D<int> & exit ); // not sure what this is
 	
 	void selectActions();
 	void updateState();
 	void registerAttributes();
 	void serialize();
-        //void SetTempNextPosition();
+
 
 
 	////////////////////////////////////////////////

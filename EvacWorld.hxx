@@ -47,8 +47,6 @@ enum Rasters
 
 class EvacWorld: public Engine::World
 {
-	typedef std::list<Engine::Point2D<int> > ExitsList;
-	ExitsList _exits;
 
 	void createAgents();
 	void createRasters();
@@ -58,10 +56,15 @@ class EvacWorld: public Engine::World
         void ResolveCompetition();
         void ResetExits();
         void UpdateExitValues();
+ 
 
 public:
 	EvacWorld( EvacConfig * config, Engine::Scheduler * scheduler = 0);
 	virtual ~EvacWorld();
+// FROM ABOVE THESE 3 LINES HERE
+	typedef std::list<Engine::Point2D<int> > ExitsList;
+	ExitsList _exits;
+        ExitsList returnList const();
 };
 
 } // namespace Evacuation

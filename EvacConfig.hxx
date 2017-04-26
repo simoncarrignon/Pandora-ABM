@@ -40,7 +40,13 @@ class EvacConfig : public Engine::Config
 public:
 	EvacConfig( const std::string & xmlFile );
 	virtual ~EvacConfig();
-	void loadParams(); 
+	void loadParams();
+        int returnChildPerc() const{return childPercentage;}
+        int returnMalePerc() const{return malePercentage;}
+        int returnElderlyPerc() const{return elderlyPercentage;}
+        int returnFloorNumber() const{return floorNumber;}
+        int returnPanicTresh() const{return notMovedPanicTreshold;}
+        
 	
 	friend class EvacWorld;
 	friend class EvacAgent;

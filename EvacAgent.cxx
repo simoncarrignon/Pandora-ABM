@@ -17,15 +17,15 @@ namespace Evacuation
 EvacAgent::EvacAgent( const std::string & id) : Agent(id), speed(0.0), floor(0), isOnStairs(false), exited(false), gender(0), age(0), panicked(0), currGoal(0, 0), vision(0), evacDist(0), evacTime(0)
 {
         const EvacConfig & evacConfig = (const EvacConfig &)getWorld()->getConfig();
-	floor = Engine::GeneralState::statistics().getUniformDistValue(0,floorNumber-1);
-        gender = Engine::GeneralState::statistics().getUniformDistValue(0,100) > malePercentage ? 1:0;
+	floor = Engine::GeneralState::statistics().getUniformDistValue(0, evacConfig.returnFloorNumber()-1);
+        gender = Engine::GeneralState::statistics().getUniformDistValue(0,100) > evacConfig.returnMalePerc() ? 1:0;
 	int b = Engine::GeneralState::statistics().getUniformDistValue(0,100);
-        if ((childPercentage + elderlyPercentage) > 100) {
+        if ((evacConfig.returnChildPerc() + evacConfig.returnElderlyPerc()) > 100) {
              exit(8);
         }
         
-        if (b <= childPercentage){ age = 0;}
-        else if ((b>childPercentage) && (b<=(childPercentage+elderlyPercentage))) { age = 2;}
+        if (b <= evacConfig.returnChildPerc()){ age = 0;}
+        else if ((b>evacConfig.returnChildPerc()) && (b<=(evacConfig.returnChildPerc() + evacConfig.returnElderlyPerc()))) { age = 2;}
         else {age = 1;}
         
         if (age == 1) {speed = 3; vision = 200;}
@@ -181,6 +181,8 @@ void EvacAgent::SetTempNextPosition()
             }
         else if ((knowledge == 0) && (seesigns > 0))
             {
+// THIS IS THE NEW TEST LINE
+            //auto _exits = getWorld()->returnList();
             currGoal = _exits[0];
             int i;
             for (i= 0; i< _exits.size(); i++)
@@ -237,6 +239,9 @@ void EvacAgent::SetTempNextPosition()
         }
         else if ((seesigns > 0) || (seeexits > 0)) //sees exits or signs 
             {
+// THIS IS THE NEW TEST LINE
+ EvacWorld & evacWorld = ( EvacWorld &)getWorld();
+            auto _exits = evacWorld.returnList();
             currGoal = _exits[0];
             int i; 
             for (i= 0; i< _exits.size(); i++)
@@ -285,7 +290,7 @@ void EvacAgent::NextPosition() // I BELIEVE THIS SHOULD BE IN WORLD CXX
 
 void EvacAgent::updateState()
 {
-
+       const EvacConfig & evacConfig = (const EvacConfig &)getWorld()->getConfig();
        // IS THIS THE CORRECT WAY TO REMOVE EXITED AGENTS ?!?!??!?!!?!?
        if (exited == true)
         {
@@ -299,14 +304,14 @@ void EvacAgent::updateState()
     
     else if(panicked >= 1) // panic increases with more not moving
         {
-        if (notMoved > notMovedPanicTreshold) 
+        if (notMoved > evacConfig.returnPanicTresh()) 
             {
             panicked +=1;
             notMoved = 0;
             }
         }
         
-    else if((notMoved > notMovedPanicTreshold) && (panicked == 0))
+    else if((notMoved > evacConfig.returnPanicTresh()) && (panicked == 0))
         {
         panicked = 1;
         knowledge = 0;
@@ -343,10 +348,10 @@ void EvacAgent::serialize()
 
 }
 	
-void EvacAgent::setExit( const Engine::Point2D<int> & exit )
+/*void EvacAgent::setExit( const Engine::Point2D<int> & exit )
 {
 	_exit = exit;
-}
+}*/
 
 } // namespace Evacuation
 
