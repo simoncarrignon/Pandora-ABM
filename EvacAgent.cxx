@@ -182,7 +182,9 @@ void EvacAgent::SetTempNextPosition()
         else if ((knowledge == 0) && (seesigns > 0))
             {
 // THIS IS THE NEW TEST LINE
-            //auto _exits = getWorld()->returnList();
+	    Engine::World* world  = getWorld();
+	    EvacWorld & evacWorld = (EvacWorld&) *world;
+	    auto _exits = evacWorld.returnList();
             currGoal = _exits[0];
             int i;
             for (i= 0; i< _exits.size(); i++)
