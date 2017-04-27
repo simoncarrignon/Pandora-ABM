@@ -241,9 +241,11 @@ void EvacAgent::SetTempNextPosition()
         }
         else if ((seesigns > 0) || (seeexits > 0)) //sees exits or signs 
             {
-// THIS IS THE NEW TEST LINE
- EvacWorld & evacWorld = ( EvacWorld &)getWorld();
-            ExitsList _exits = evacWorld.returnList();
+// THIS IS THE NEW TEST LINES ' TRYING A IFFERENT APPROACH RIGHT NOW
+            Engine::World* world = getWorld();
+            EvacWorld & evacWorld = (EvacWorld &) *world;
+            auto _exits = evacWorld.returnList();
+
             currGoal = _exits[0];
             int i; 
             for (i= 0; i< _exits.size(); i++)
