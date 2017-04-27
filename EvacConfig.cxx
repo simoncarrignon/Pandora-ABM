@@ -31,7 +31,7 @@ void EvacConfig::loadParams()
     signList.push_back(sign);
 
     // doors
-    Engine::Point2D<int> sign;
+    Engine::Point2D<int> door;
     door._x = getParamInt("doors/door", "x");
     door._y = getParamInt("doors/door", "y");
     doorList.push_back(door);    

@@ -60,9 +60,9 @@ public:
 //ADDING LINE TO TRY TO FIX AN ERROR
         typedef std::list<Engine::Point2D<int> > ExitsList;
 
-        std::list<Engine::Point2D<int> > operator[](int index){return std::list<Engine::Point2D<int> >[index];}
+        //std::list<Engine::Point2D<int> > operator[](int index){return std::list<Engine::Point2D<int> >[index];}
 
-	void selectActions();
+	//void selectActions();
 	void updateState();
 	void registerAttributes();
 	void serialize();
