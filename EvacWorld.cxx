@@ -311,7 +311,7 @@ void EvacWorld::run()
 	logName << "simulation_" << getId();
 	log_INFO(logName.str(), getWallTime() << " executing " << _config->getNumSteps() << " steps...");
 
-	while(_agents.size()>0}
+	while(_agents.size()>0)
 	{
 		step();
 	}
