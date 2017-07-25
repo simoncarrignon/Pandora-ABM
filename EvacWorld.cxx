@@ -305,6 +305,27 @@ void EvacWorld::stepEnvironment()
 
 }
 
+void EvacWorld::run()
+{
+	std::stringstream logName;
+	logName << "simulation_" << getId();
+	log_INFO(logName.str(), getWallTime() << " executing " << _config->getNumSteps() << " steps...");
+
+	while(_agents.size()>0}
+	{
+		step();
+	}
+	// storing last step data
+	if(_step%_config->getSerializeResolution()==0)
+	{
+		_scheduler->serializeRasters(_step);
+		_scheduler->serializeAgents(_step);
+	}
+	log_INFO(logName.str(), getWallTime() << " closing files");
+	_scheduler->finish();
+}
+
+
 } // namespace Evacuation
 
 

@@ -64,6 +64,7 @@ class EvacWorld: public Engine::World
 public:
 	EvacWorld( EvacConfig * config, Engine::Scheduler * scheduler = 0);
 	virtual ~EvacWorld();
+	void run();
 // FROM ABOVE THESE 3 LINES HERE
 
         ExitsList returnList() const{return _exits;}
